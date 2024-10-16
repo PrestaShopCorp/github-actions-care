@@ -11,8 +11,8 @@ inputs:
 
 runs:
   using: "composite"
-  php-linter:
-    name: PHP Syntax check
+  
+  - name: PHP Syntax check
     runs-on: ubuntu-latest
     strategy:
       matrix:
