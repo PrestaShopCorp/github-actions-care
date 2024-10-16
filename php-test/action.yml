@@ -13,6 +13,6 @@ runs:
   using: "composite"
   steps:
     - name: Test PHP
-      uses: ./.github/workflows/test-php.yml
+      uses: prestashopcorp/github-actions-care/php-test/.github/workflows/test-php.yml
       with:
         php-versions: ${{ inputs.php-versions }}
