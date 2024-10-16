@@ -18,7 +18,7 @@ jobs:
         php-versions: ${{ fromJson(inputs.php-versions) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.0.0
+        uses: actions/checkout@v3
 
       - name: PHP syntax checker ${{ matrix.php-versions }}
         uses: prestashop/github-action-php-lint/${{ matrix.php-versions }}@master
