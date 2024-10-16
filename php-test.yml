@@ -5,10 +5,10 @@ on:
     inputs:
       presta-versions:
         required: true
-        type: array
+        type: string
       php-versions:
         required: true
-        type: array
+        type: string
 
 jobs:
   php-linter:
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-versions: ${{ inputs.php-versions }}
+        php-versions: ${{ fromJson(inputs.php-versions) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        presta-versions: ${{ inputs.presta-versions }}
+        presta-versions: ${{ fromJson(inputs.presta-versions) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
