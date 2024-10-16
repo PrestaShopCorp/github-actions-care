@@ -11,15 +11,15 @@ inputs:
 
 runs:
   using: "composite"
-  
-  - name: PHP Syntax check
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php-versions: ${{ fromJson(inputs.php-versions) }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3 
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v3 
 
-      - name: PHP syntax checker ${{ matrix.php-versions }}
-        uses: prestashop/github-action-php-lint/${{ matrix.php-versions }}@master
+    - name: Run PHP Linter
+      run: |
+        IFS=',' read -r -a php_array <<< "${{ inputs.php-versions }}"
+        for php_version in "${php_array[@]}"; do
+          echo "Running PHP syntax checker for version $php_version"
+          # Appellez ici l'action PHP linter
+          uses: prestashop/github-action-php-lint/${php_version}@master
+        done
