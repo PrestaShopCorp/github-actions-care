@@ -11,6 +11,7 @@ inputs:
 
 runs:
   using: "composite"
+  runs-on: ubuntu-latest
   steps:
     - name: Checkout code
       uses: actions/checkout@v3 
@@ -23,7 +24,5 @@ runs:
           echo "Running PHP syntax checker for version $php_version"
           # Appellez ici l'action PHP linter
           echo "Using action: prestashop/github-action-php-lint/${php_version}@master"  # Pour débogage
-          echo "::group::PHP $php_version"
-          echo "::error::Check the syntax for PHP $php_version"  # Simule l'exécution
-          echo "::endgroup::"
+          uses: prestashop/github-action-php-lint/${php_version}@master
         done
