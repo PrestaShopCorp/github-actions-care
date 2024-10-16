@@ -3,9 +3,11 @@ on:
   workflow_call:
     inputs:
       presta-versions:
+        description: "PrestaShop versions to test"
         required: true
         type: string
       php-versions:
+        description: "PHP versions to use"
         required: true
         type: string
 
