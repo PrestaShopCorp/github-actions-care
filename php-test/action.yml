@@ -1,0 +1,18 @@
+name: PHP tests
+inputs:
+  presta-versions:
+    description: "PrestaShop versions to test"
+    required: true
+    type: string
+  php-versions:
+    description: "PHP versions to use"
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: Test PHP
+      uses: .github/workflows/test-php.yml
+      with:
+        php-versions: ${{ inputs.php-versions }}
