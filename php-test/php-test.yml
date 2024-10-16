@@ -1,11 +1,13 @@
 name: PHP tests
-inputs:
-  presta-versions:
-    required: true
-    type: string
-  php-versions:
-    required: true
-    type: string
+on:
+  workflow_call:
+    inputs:
+      presta-versions:
+        required: true
+        type: string
+      php-versions:
+        required: true
+        type: string
 
 jobs:
   php-linter:
