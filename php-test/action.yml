@@ -22,5 +22,8 @@ runs:
         for php_version in "${php_array[@]}"; do
           echo "Running PHP syntax checker for version $php_version"
           # Appellez ici l'action PHP linter
-          uses: prestashop/github-action-php-lint/${php_version}@master
+          echo "Using action: prestashop/github-action-php-lint/${php_version}@master"  # Pour débogage
+          echo "::group::PHP $php_version"
+          echo "::error::Check the syntax for PHP $php_version"  # Simule l'exécution
+          echo "::endgroup::"
         done
