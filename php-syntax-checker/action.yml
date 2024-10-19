@@ -7,5 +7,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: PHP syntax checker ${{ inputs.php-version }}
+    - name: PHP syntax checker -${{ inputs.php-version }}-
       uses: prestashop/github-action-php-lint/${{ inputs.php-version }}@master
