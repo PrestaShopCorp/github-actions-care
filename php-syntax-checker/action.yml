@@ -9,4 +9,4 @@ runs:
   using: "composite"
   steps:
     - name: PHP syntax checker -${{ inputs.php-version }}-
-      
+      run: echo ${{ inputs.php-version }}
