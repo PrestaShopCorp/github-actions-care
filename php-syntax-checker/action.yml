@@ -9,5 +9,4 @@ runs:
   using: "composite"
   steps:
     - name: PHP syntax checker -${{ inputs.php-version }}-
-      run: echo ${{ inputs.php-version }}
-      shell: bash
+      run: docker run -tid --rm -v ps-volume:/var/www/html --name temp-php prestashop/github-action-php-lint/${{ inputs.php-versions }}@master
