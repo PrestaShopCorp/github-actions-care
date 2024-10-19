@@ -4,8 +4,9 @@ inputs:
   php-version:
     description: "PHP version to use"
     required: false
+
 runs:
   using: "composite"
   steps:
     - name: PHP syntax checker -${{ inputs.php-version }}-
-      uses: prestashop/github-action-php-lint/${{ inputs.php-version }}@master
+      
